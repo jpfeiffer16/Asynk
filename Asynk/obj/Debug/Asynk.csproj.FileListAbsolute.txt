@@ -1,0 +1,5 @@
+c:\Users\jpfeiffer\documents\visual studio 2013\Projects\Asynk\Asynk\obj\Debug\Asynk.csprojResolveAssemblyReference.cache
+c:\Users\jpfeiffer\documents\visual studio 2013\Projects\Asynk\Asynk\bin\Debug\Asynk.dll
+c:\Users\jpfeiffer\documents\visual studio 2013\Projects\Asynk\Asynk\bin\Debug\Asynk.pdb
+c:\Users\jpfeiffer\documents\visual studio 2013\Projects\Asynk\Asynk\obj\Debug\Asynk.dll
+c:\Users\jpfeiffer\documents\visual studio 2013\Projects\Asynk\Asynk\obj\Debug\Asynk.pdb
