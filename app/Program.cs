@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Net;
+using System.IO;
 
 using Asynk;
 
@@ -14,33 +16,30 @@ namespace app
     {
         static void Main(string[] args)
         {
-            var utils = new Utils();
-            utils.DoStuff()
-                .Then(() =>
-                {
-                    Console.WriteLine("Done doing stuff");
-                });
-            
-            //Keep the main ui thread awake:
-            while (true)
+            var promise = new Promise(() =>
             {
+                //This is syncronous, blocking code
+                var request = WebRequest.Create("https://spiderserver.herokuapp.com");
+                var response = request.GetResponse().GetResponseStream();
+                var reader = new StreamReader(response);
+                var html = reader.ReadToEnd();
+                Console.WriteLine(html);
+            });
+
+            promise.Then(() =>
+            {
+                Console.WriteLine("Promise has resolved");
+            });
+
+            //Down here we'll count up for a bit
+
+            var countTo = 40;
+
+            for (var i = 0; i < countTo; i++)
+            {
+                Console.WriteLine(i.ToString());
                 Thread.Sleep(100);
             }
-        }
-    }
-
-    public class Utils
-    {
-        public Promise DoStuff()
-        {
-            return new Promise(() =>
-            {
-                for (var i = 0; i < 10; i++)
-                {
-                    Console.WriteLine(i.ToString());
-                    Thread.Sleep(1000);
-                }
-            });
         }
     }
 }

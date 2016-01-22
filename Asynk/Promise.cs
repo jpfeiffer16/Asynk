@@ -5,6 +5,19 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+//////////////
+//Syntax guide
+//////////////
+//var test = new Promise(() => 
+//{
+//    //Do some blocking operation here
+//});
+//test.Then(() => {
+//    //Callback to operation here
+//});
+//Console.WriteLine("Meanwhile, this code will continue to execute.");
+//////////////
+
 namespace Asynk
 {
     public class Promise
